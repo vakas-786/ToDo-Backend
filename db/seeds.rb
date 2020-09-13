@@ -10,12 +10,6 @@ Task.create(text: "Cook rice", category: "Food")
 Task.create(text: "Tidy house", category: "Misc")
 
 
-
-
-
-
-
-
 Category.create(name: 'All')
 Category.create(name: 'Code')
 Category.create(name: 'Food')

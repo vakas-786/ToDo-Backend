@@ -3,12 +3,14 @@ class CategoriesController < ApplicationController
 
     def index 
         category = Category.all 
-        render json: category 
+        categories = category.sort_by{ |obj| obj.id } 
+        render json: categories
     end 
 
     def update 
         category = Category.find(params[:id])
         category.update(category_params)
+        render json: category 
     end
     
     private 
