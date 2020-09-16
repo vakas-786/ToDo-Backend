@@ -8,6 +8,13 @@ class TasksController < ApplicationController
 
     def create 
         task = Task.create(task_params)
+        if task.save 
+            serialized_data = ActiveModelSerializers::Adapter::Json.new(
+            TaskSerializer.new(task)
+            ).serializable_hash 
+            TasksChannel.broadcast_to 'tasks_channel', serialized_data
+            head :ok 
+        end 
         render json: task
     end 
 
