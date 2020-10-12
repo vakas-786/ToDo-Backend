@@ -9,22 +9,12 @@ class CategoriesController < ApplicationController
 
     def update 
         category = Category.find(params[:id])
-        # category.update(category_params)
-        
-        if category.update(category_params)
-            serialized_data = ActiveModelSerializers::Adapter::Json.new(
-                CategorySerializer.new(category)
-            ).serializable_hash
-            ActionCable.server.broadcast 'categories_channel', serialized_data
-            head :ok
-            
-        end
-        
+        category.update(category_params)
         render json: category 
     end
     
     private 
     def category_params
-        params.require(:category).permit(:name)
+        params.require(:category).permit(:name, :user_id)
     end
 end

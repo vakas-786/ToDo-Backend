@@ -1,18 +1,21 @@
 Task.destroy_all 
 Category.destroy_all 
+User.destroy_all
 
-Task.create(text: "Buy rice", category: "Food")
-Task.create(text: "Save a tenner", category: "Money")
-Task.create(text: "Build a todo app", category: "Code")
-Task.create(text: "Build a todo API", category: "Code")
-Task.create(text: "Get an ISA", category: "Money")
-Task.create(text: "Cook rice", category: "Food")
-Task.create(text: "Tidy house", category: "Misc")
+User.create(username: 'test', password: 'password')
+
+Task.create(text: "Buy rice", category: "Food", user_id: User.all.first.id)
+Task.create(text: "Save a tenner", category: "Money", user_id: User.all.first.id)
+Task.create(text: "Build a todo app", category: "Code", user_id: User.all.first.id)
+Task.create(text: "Build a todo API", category: "Code", user_id: User.all.first.id)
+Task.create(text: "Get an ISA", category: "Money", user_id: User.all.first.id)
+Task.create(text: "Cook rice", category: "Food", user_id: User.all.first.id)
+Task.create(text: "Tidy house", category: "Misc", user_id: User.all.first.id)
 
 
-Category.create(name: 'All')
-Category.create(name: 'Code')
-Category.create(name: 'Food')
-Category.create(name: 'Money')
-Category.create(name: 'Misc')
+Category.create(name: 'All', user_id: User.all.first.id)
+Category.create(name: 'Code', user_id: User.all.first.id)
+Category.create(name: 'Food', user_id: User.all.first.id)
+Category.create(name: 'Money', user_id: User.all.first.id)
+Category.create(name: 'Misc', user_id: User.all.first.id)
 
