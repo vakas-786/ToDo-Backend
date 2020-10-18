@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-    skip_before_action :authorized
-
+    skip_before_action :authorized 
    
    def index 
-        tasks =  Task.all
+    byebug
+        tasks =  current_user.tasks
         render json: tasks
     end 
 
