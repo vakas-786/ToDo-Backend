@@ -1,25 +1,22 @@
-# README
+# Installation
+Installation instructions can be found <a href='https://github.com/vakas-786/Community-ToDo-List'>here</a>. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Models and Relationships 
 
-Things you may want to cover:
+User
+```sh
+    has_many :tasks 
+    has_many :categories
+```
 
-* Ruby version
+Task
+```sh
+    belongs_to :user
+```
 
-* System dependencies
+Category 
+```sh
+    belongs_to :user
+```
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# ToDo-Backend
